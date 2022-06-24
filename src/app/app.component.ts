@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FlightBookingWeb';
+  IsLogin = localStorage.getItem('apitoken') != null ? true : false;
+  IsAdmin = localStorage.getItem('role') == 'admin' ? true : false;
+
+  constructor(){
+    console.log('app component load');
+  }
 }
