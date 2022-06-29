@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,6 +18,7 @@ import { UserMasterComponent } from './User/user-master/user-master.component';
 import { BookFlightComponent } from './User/book-flight/book-flight.component';
 import { ManageBookingComponent } from './User/manage-booking/manage-booking.component';
 import { BookingHistoryComponent } from './User/booking-history/booking-history.component';
+import { GlobalErrorHandlerService } from './Helper/global-error-handler.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { BookingHistoryComponent } from './User/booking-history/booking-history.
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
